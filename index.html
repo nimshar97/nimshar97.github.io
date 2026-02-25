@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nimsha Rajesh — Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0a1628;--blue:#1847c2;--blue-light:#e8effe;
+  --cream:#faf8f5;--warm:#f0ebe3;--ink:#1a1a2e;
+  --muted:#64748b;--rule:#e2ddd6;--white:#ffffff;
+}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(250,248,245,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--navy);text-decoration:none;}
+.nav-logo span{color:var(--blue);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.8rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--blue);}
+.nav-badge{display:flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;background:var(--blue);color:white;font-size:0.75rem;font-weight:500;border-radius:100px;}
+.ndot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(1.3);}}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;padding-top:5rem;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem;border-right:1px solid var(--rule);}
+.hero-right{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:5rem 3rem;background:var(--navy);}
+.eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+.eline{width:40px;height:1px;background:var(--blue);}
+.elabel{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,5rem);font-weight:300;line-height:1.0;color:var(--navy);margin-bottom:0.5rem;}
+.hero-name strong{font-weight:700;display:block;}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--blue);margin-bottom:1.5rem;}
+.hero-desc{font-size:0.95rem;color:var(--muted);line-height:1.8;max-width:440px;margin-bottom:2rem;}
+.chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2.5rem;}
+.chip{padding:0.3rem 0.85rem;background:var(--warm);border:1px solid var(--rule);border-radius:100px;font-size:0.78rem;color:var(--muted);}
+.chip.p{background:var(--blue);color:white;border-color:var(--blue);}
+.btns{display:flex;gap:1rem;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.8rem;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.2s;border-radius:3px;}
+.btn-d{background:var(--navy);color:white;}
+.btn-d:hover{background:var(--blue);transform:translateY(-2px);}
+.btn-o{color:var(--navy);border:1.5px solid var(--rule);}
+.btn-o:hover{border-color:var(--blue);color:var(--blue);}
+
+/* PHOTO */
+.photo-wrap{position:relative;width:260px;margin-bottom:2.5rem;}
+.photo-wrap img{width:260px;height:320px;object-fit:cover;object-position:center top;display:block;border:3px solid rgba(255,255,255,0.1);}
+.photo-ph{width:260px;height:320px;background:linear-gradient(135deg,#1a3a6e,#0a1628);display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:0.8rem;text-align:center;gap:0.5rem;border:3px solid rgba(255,255,255,0.1);}
+.photo-accent{position:absolute;bottom:-14px;right:-14px;width:80px;height:80px;background:var(--blue);z-index:-1;}
+.hstats{display:flex;gap:2.5rem;}
+.hstat .n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:white;line-height:1;}
+.hstat .l{font-size:0.68rem;color:rgba(255,255,255,0.45);margin-top:0.2rem;line-height:1.3;}
+
+/* QUOTE */
+.qbanner{background:var(--navy);padding:4rem;display:flex;align-items:center;gap:3rem;}
+.qi{font-family:'Cormorant Garamond',serif;font-size:7rem;color:var(--blue);opacity:0.3;line-height:0.7;flex-shrink:0;}
+.qt{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.7rem);font-style:italic;color:rgba(255,255,255,0.9);line-height:1.6;margin-bottom:0.75rem;}
+.qc{font-size:0.78rem;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:0.6rem;}
+.qc::before{content:'';width:28px;height:1px;background:var(--blue);}
+
+/* SECTIONS */
+.sec{padding:6rem 4rem;border-bottom:1px solid var(--rule);}
+.sec-warm{background:var(--warm);}
+.sec-dark{background:var(--navy);}
+.sec-ey{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;}
+.sec-el{width:28px;height:1px;background:var(--blue);}
+.sec-lb{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);}
+.sec-lb-w{color:#6b8fff;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.1;color:var(--navy);margin-bottom:3rem;max-width:650px;}
+.sec-title em{font-style:italic;color:var(--blue);}
+.sec-title-w{color:white;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-text p{font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:1.2rem;}
+.about-text p strong{color:var(--navy);}
+.about-text p em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--blue);}
+.facts{border:1px solid var(--rule);}
+.frow{display:flex;border-bottom:1px solid var(--rule);transition:background 0.2s;}
+.frow:last-child{border-bottom:none;}
+.frow:hover{background:var(--warm);}
+.fk{width:130px;flex-shrink:0;padding:1rem 1.2rem;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--rule);display:flex;align-items:center;}
+.fv{padding:1rem 1.2rem;font-size:0.88rem;color:var(--navy);font-weight:500;display:flex;align-items:center;}
+.fv .ac{color:var(--blue);font-weight:600;}
+
+/* CASE STUDIES */
+.case-cards{display:flex;flex-direction:column;gap:2px;}
+.cc{background:white;border:1px solid var(--rule);overflow:hidden;transition:box-shadow 0.3s;}
+.cc:hover{box-shadow:0 12px 40px rgba(24,71,194,0.1);}
+.cc-head{display:grid;grid-template-columns:70px 1fr;align-items:center;padding:2rem 2.5rem;gap:1.5rem;border-bottom:1px solid var(--rule);}
+.cc-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--blue);opacity:0.2;line-height:1;}
+.cc-tag{display:inline-block;padding:0.2rem 0.65rem;background:var(--blue-light);color:var(--blue);font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:2px;margin-bottom:0.5rem;}
+.cc-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:0.2rem;}
+.cc-co{font-size:0.75rem;color:var(--muted);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;}
+.cc-body{padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
+.cst{font-size:0.67rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:0.6rem;}
+.cp{font-size:0.87rem;color:var(--muted);line-height:1.72;margin-bottom:0.85rem;}
+.cquote{padding:1.1rem 1.3rem;background:var(--cream);border-left:3px solid var(--blue);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.98rem;color:var(--navy);line-height:1.55;margin-bottom:0.85rem;}
+.cib{background:var(--navy);padding:1.3rem;margin-bottom:0.85rem;}
+.cib .cil{font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;}
+.cib p{font-size:0.87rem;color:rgba(255,255,255,0.8);line-height:1.6;}
+.cpstmt{padding:1.1rem 1.3rem;border:1px solid var(--blue);background:var(--blue-light);font-size:0.86rem;color:var(--navy);line-height:1.55;font-style:italic;margin-bottom:0.85rem;}
+.cpills{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.75rem;}
+.cpill{padding:0.18rem 0.6rem;border:1px solid var(--rule);font-size:0.68rem;color:var(--muted);border-radius:100px;}
+
+/* EXPERIENCE */
+.exp-list{border:1px solid var(--rule);}
+.ei{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--rule);transition:background 0.2s;}
+.ei:last-child{border-bottom:none;}
+.ei:hover{background:var(--warm);}
+.ei-left{padding:2rem 1.5rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:0.3rem;}
+.ei-dates{font-size:0.78rem;font-weight:600;color:var(--blue);}
+.ei-loc{font-size:0.72rem;color:var(--muted);}
+.ei-logo{margin-top:0.75rem;width:34px;height:34px;background:var(--warm);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.62rem;font-weight:700;color:var(--navy);}
+.ei-right{padding:2rem 2.5rem;}
+.ei-role{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
+.ei-co{font-size:0.8rem;color:var(--blue);font-weight:600;margin-bottom:1rem;letter-spacing:0.03em;}
+.ei-ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
+.ei-ul li{font-size:0.86rem;color:var(--muted);padding-left:1.2rem;position:relative;line-height:1.55;}
+.ei-ul li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:0.72rem;}
+
+/* SKILLS */
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);}
+.sk-col{padding:2rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.sk-col:nth-child(3n){border-right:none;}
+.sk-col:nth-child(n+4){border-bottom:none;}
+.sk-title{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--rule);}
+.sk-ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.sk-ul li{font-size:0.85rem;color:var(--muted);display:flex;align-items:center;gap:0.55rem;}
+.skd{width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0;opacity:0.6;}
+
+/* EDU */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.edu-card{background:white;border:1px solid var(--rule);padding:2.5rem;transition:box-shadow 0.2s;}
+.edu-card:hover{box-shadow:0 8px 32px rgba(24,71,194,0.08);}
+.edu-deg{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--navy);margin-bottom:0.25rem;line-height:1.2;}
+.edu-field{font-size:0.82rem;color:var(--blue);font-weight:600;margin-bottom:0.6rem;}
+.edu-uni{font-size:0.8rem;color:var(--muted);margin-bottom:0.2rem;}
+.edu-dates{font-size:0.75rem;color:var(--muted);margin-bottom:1.2rem;}
+.edu-badge{display:inline-flex;align-items:center;gap:0.4rem;padding:0.3rem 0.8rem;background:var(--navy);color:white;font-size:0.75rem;font-weight:600;border-radius:2px;margin-bottom:1rem;}
+.edu-ul{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+.edu-ul li{font-size:0.83rem;color:var(--muted);padding-left:1rem;position:relative;line-height:1.45;}
+.edu-ul li::before{content:'—';position:absolute;left:0;color:var(--rule);}
+
+/* WHY DPS */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.wp{font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1.2rem;}
+.wp strong{color:white;}
+.wcl{list-style:none;border:1px solid rgba(255,255,255,0.08);}
+.wi{display:flex;align-items:flex-start;gap:0.9rem;padding:1rem 1.3rem;border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.45;transition:background 0.2s;}
+.wi:last-child{border-bottom:none;}
+.wi:hover{background:rgba(255,255,255,0.04);}
+.wtick{color:#6b8fff;flex-shrink:0;}
+
+/* CONTACT */
+.contact-sec{padding:6rem 4rem;text-align:center;}
+.contact-sec .sec-title{margin:0 auto 0.75rem;text-align:center;}
+.csub{font-size:0.95rem;color:var(--muted);margin-bottom:2.5rem;}
+.clinks{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.clink{display:flex;align-items:center;gap:0.65rem;padding:0.9rem 1.5rem;background:white;border:1px solid var(--rule);text-decoration:none;color:var(--navy);font-size:0.85rem;font-weight:500;border-radius:3px;transition:all 0.2s;}
+.clink:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);box-shadow:0 6px 20px rgba(24,71,194,0.1);}
+.cicon{width:34px;height:34px;background:var(--blue-light);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;}
+.dbadge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.55rem 1.3rem;background:var(--navy);color:white;font-size:0.78rem;font-weight:500;border-radius:100px;}
+
+/* FOOTER */
+footer{padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);background:var(--warm);}
+footer p{font-size:0.73rem;color:var(--muted);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.75s ease,transform 0.75s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links,.nav-badge{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hero-left{padding:5rem 1.5rem 2rem;}
+  .hero-right{padding:2.5rem 1.5rem;}
+  .sec,.contact-sec{padding:4rem 1.5rem;}
+  .qbanner{padding:2.5rem 1.5rem;flex-direction:column;gap:1rem;}
+  .about-grid,.why-grid,.edu-grid{grid-template-columns:1fr;}
+  .cc-body{grid-template-columns:1fr;}
+  .ei{grid-template-columns:1fr;}
+  .ei-left{border-right:none;border-bottom:1px solid var(--rule);padding:1.2rem 1.5rem;}
+  .ei-right{padding:1.2rem 1.5rem;}
+  .sk-grid{grid-template-columns:1fr 1fr;}
+  .sk-col:nth-child(3n){border-right:1px solid var(--rule);}
+  .sk-col:nth-child(2n){border-right:none;}
+  footer{flex-direction:column;gap:0.4rem;padding:1.2rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Nimsha <span>Rajesh</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#exp">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-badge"><span class="ndot"></span>DPS Batch #26</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow"><div class="eline"></div><span class="elabel">Product Manager · Munich · DPS Batch #26</span></div>
+    <h1 class="hero-name">Nimsha<strong>Rajesh</strong></h1>
+    <p class="hero-tagline">Engineer who thinks like a product manager.</p>
+    <p class="hero-desc">M.Eng. Electrical & Computer Engineering. Real PM experience inside a product management department at a global maritime tech company. Two independent product case studies built on real user interviews.</p>
+    <div class="chips">
+      <span class="chip p">Product Management</span>
+      <span class="chip">User Research</span>
+      <span class="chip">Lean Validation</span>
+      <span class="chip">Agile / Scrum</span>
+      <span class="chip">EU Blue Card 🇩🇪</span>
+    </div>
+    <div class="btns">
+      <a href="#cases" class="btn btn-d">View Case Studies →</a>
+      <a href="#contact" class="btn btn-o">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="photo-wrap">
+      <img src="photo.jpg" alt="Nimsha Rajesh"
+        onerror="this.style.display='none';document.getElementById('ph').style.display='flex';">
+      <div id="ph" class="photo-ph" style="display:none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+        <span>Upload photo.jpg<br>to GitHub</span>
+      </div>
+      <div class="photo-accent"></div>
+    </div>
+    <div class="hstats">
+      <div class="hstat"><div class="n">2+</div><div class="l">Years PM<br>experience</div></div>
+      <div class="hstat"><div class="n">10+</div><div class="l">User interviews<br>conducted</div></div>
+      <div class="hstat"><div class="n">2</div><div class="l">Product<br>case studies</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="qbanner reveal">
+  <div class="qi">"</div>
+  <div>
+    <p class="qt">Nimsha's role required a high level of personal responsibility and accuracy. Her documentation is now being utilized by all HVDC/FACTS developers globally.</p>
+    <p class="qc">Jens Dietrich — Team Lead, C&P Platform Control Level Development, Siemens Energy</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="reveal">
+    <div class="sec-ey"><div class="sec-el"></div><span class="sec-lb">About Me</span></div>
+    <h2 class="sec-title">The story behind<br>the <em>product thinking.</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>One afternoon at Freddy Fresh, I watched a colleague check the workforce app three times in ten minutes — not because she was anxious, but because she genuinely didn't know if her break had been logged correctly. The system had recorded it. The data was there. But nothing in the interface told her that.</p>
+      <p>Nobody asked me to fix it. I wasn't in a product role. But I couldn't let it go. I interviewed five colleagues, mapped every friction point, and proposed specific solutions. <em>That was the moment I understood what product management actually is.</em></p>
+      <p>Since then, I've been doing this work professionally. At <strong>NACOS Marine</strong>, I worked inside the Third Party Product Management team — roadmapping, market analysis, business case development, requirements definition, and customer training. At <strong>Siemens Energy</strong>, I built documentation infrastructure used by engineers globally.</p>
+      <p>Now I want to build a <strong>digital product from zero</strong>, in a cross-functional team, driven entirely by real user problems. That's why I'm applying to DPS Batch #26.</p>
+    </div>
+    <div class="facts reveal d2">
+      <div class="frow"><div class="fk">Location</div><div class="fv">Halle → <span class="ac">Munich</span></div></div>
+      <div class="frow"><div class="fk">Degree</div><div class="fv">M.Eng. Electrical & Computer Eng.</div></div>
+      <div class="frow"><div class="fk">GPA</div><div class="fv"><span class="ac">1.9</span> — Very Good</div></div>
+      <div class="frow"><div class="fk">Status</div><div class="fv"><span class="ac">EU Blue Card</span> holder</div></div>
+      <div class="frow"><div class="fk">Languages</div><div class="fv">English C2 · German B2 · Malayalam</div></div>
+      <div class="frow"><div class="fk">Available</div><div class="fv"><span class="ac">September 2026</span> · Full-time</div></div>
+      <div class="frow"><div class="fk">Email</div><div class="fv">nimshar97@gmail.com</div></div>
+      <div class="frow"><div class="fk">Phone</div><div class="fv">+49 176 21280814</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="sec sec-warm" id="cases">
+  <div class="reveal">
+    <div class="sec-ey"><div class="sec-el"></div><span class="sec-lb">Product Thinking in Practice</span></div>
+    <h2 class="sec-title">Two case studies.<br>Two contexts. <em>One mindset.</em></h2>
+  </div>
+  <div class="case-cards">
+    <!-- CS1 -->
+    <div class="cc reveal">
+      <div class="cc-head">
+        <div class="cc-num">01</div>
+        <div>
+          <span class="cc-tag">B2B Internal Tool</span>
+          <h3 class="cc-name">Workforce & Order Management System</h3>
+          <p class="cc-co">Freddy Fresh GmbH · 2023 · Self-initiated</p>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div>
+          <p class="cst">Context & Research</p>
+          <p class="cp">Observed recurring friction during peak hours in EDPEP (workforce management) and an integrated order management platform. Self-initiated a structured product analysis — nobody asked me to. I simply couldn't ignore it.</p>
+          <p class="cp"><strong style="color:var(--navy)">Research:</strong> Semi-structured interviews with 5 stakeholders — 3 service employees, 1 kitchen staff, 1 store manager.</p>
+          <p class="cst" style="margin-top:1.2rem">Problems Identified</p>
+          <p class="cp">① Break logging uncertainty → frequent manual checks<br>② Limited shift transparency → coordination friction<br>③ Cognitive overload during peak hours<br>④ Reactive-only system — no proactive guidance</p>
+          <div class="cpstmt">How might we improve clarity and real-time feedback in internal workforce systems to reduce cognitive load and operational stress during peak service hours?</div>
+        </div>
+        <div>
+          <p class="cst">Core Insight</p>
+          <div class="cib"><div class="cil">Key Insight</div><p>Internal B2B tools require the same product rigor as consumer apps. Small UX friction compounds dramatically under pressure. The system was technically correct — and completely failing its user at the same time.</p></div>
+          <p class="cst" style="margin-top:1.2rem">Proposed Solutions</p>
+          <p class="cp">Real-time break timer with confirmation · Weekly hour dashboard · Push notifications for shift updates · Simplified kitchen order queue with urgency indicators</p>
+          <p class="cst" style="margin-top:1.2rem">Key Learning</p>
+          <p class="cp">Designing for immediate feedback and error prevention — not just correct functionality — is what separates good internal tools from great ones.</p>
+          <div class="cpills">
+            <span class="cpill">User Interviews</span><span class="cpill">B2B UX</span><span class="cpill">Problem Framing</span><span class="cpill">Self-initiated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CS2 -->
+    <div class="cc reveal d1">
+      <div class="cc-head">
+        <div class="cc-num">02</div>
+        <div>
+          <span class="cc-tag">Consumer Digital Product</span>
+          <h3 class="cc-name">Food Delivery Experience</h3>
+          <p class="cc-co">Lieferando · 2025 · Independent analysis</p>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div>
+          <p class="cst">Context & Research</p>
+          <p class="cp">As a regular Lieferando user, I noticed trust gaps throughout the ordering experience. Interviewed 3–5 friends and flatmates to understand whether these were personal frustrations or systemic issues.</p>
+          <p class="cst" style="margin-top:1.2rem">Real User Voices</p>
+          <div class="cquote">"I once ordered, the restaurant started preparing my food, but no delivery driver was available. I waited over an hour and a half — the restaurant closed, and I had to raise a complaint to get my money back."</div>
+          <div class="cquote">"The app said my food would arrive in 30 minutes, but it actually took over an hour."</div>
+          <div class="cpstmt">How might we give Lieferando users real-time order visibility so they feel in control — even when restaurant drivers handle delivery?</div>
+        </div>
+        <div>
+          <p class="cst">Prioritization</p>
+          <div class="cib"><div class="cil">Why Delivery Transparency is #1</div><p>Affects every single order · Highest anxiety moment (money spent, waiting, no control) · Directly impacts trust and repeat usage · Solvable with app-side updates without heavy restaurant system integration</p></div>
+          <p class="cst" style="margin-top:1.2rem">Lean Validation</p>
+          <p class="cp"><strong style="color:var(--navy)">Mockup test:</strong> Show users "Restaurant driver on the way — ETA: 45 min" → Does this reduce anxiety?</p>
+          <p class="cp"><strong style="color:var(--navy)">A/B test:</strong> Text status updates vs no updates → Measure abandonment rate and repeat order rate before building anything.</p>
+          <div class="cpills">
+            <span class="cpill">User Research</span><span class="cpill">Prioritization</span><span class="cpill">Lean Validation</span><span class="cpill">A/B Testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="sec" id="exp">
+  <div class="reveal">
+    <div class="sec-ey"><div class="sec-el"></div><span class="sec-lb">Professional Experience</span></div>
+    <h2 class="sec-title">Built on <em>engineering.</em><br>Driven by product.</h2>
+  </div>
+  <div class="exp-list reveal">
+    <div class="ei">
+      <div class="ei-left"><div class="ei-dates">Mar 2025 – Aug 2025</div><div class="ei-loc">Hamburg, Germany</div><div class="ei-logo">NM</div></div>
+      <div class="ei-right">
+        <h3 class="ei-role">Third Party Product Engineer</h3>
+        <p class="ei-co">NACOS Marine GmbH — Third Party Product Management Department</p>
+        <ul class="ei-ul">
+          <li>Conducted market, stakeholder, and process performance analyses for product strategy</li>
+          <li>Developed and owned product roadmaps, business cases, and decision-support tools</li>
+          <li>Built end-to-end business case for Remote Maintenance System (RMS) — approved for global deployment</li>
+          <li>Defined requirements, evaluated designs, and managed full product lifecycle</li>
+          <li>Planned and delivered customer webinars, product trainings, and presentations worldwide</li>
+          <li>Developed interactive eLearning modules using Articulate Rise 360</li>
+          <li>Certification: NACOS Platinum Navigation Basic</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ei">
+      <div class="ei-left"><div class="ei-dates">Jun 2023 – Jan 2024</div><div class="ei-loc">Erlangen, Germany</div><div class="ei-logo">SE</div></div>
+      <div class="ei-right">
+        <h3 class="ei-role">Working Student — HVDC/FACTS Documentation</h3>
+        <p class="ei-co">Siemens Energy Global GmbH & Co. KG</p>
+        <ul class="ei-ul">
+          <li>Built documentation infrastructure for HVDC/FACTS control libraries — used by all HVDC developers globally</li>
+          <li>Structured Simulink model meta-information into standardized Markdown/HTML documentation</li>
+          <li>Managed version control via GitLab: issues, feature branches, merge requests</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ei">
+      <div class="ei-left"><div class="ei-dates">Feb 2022 – Feb 2025</div><div class="ei-loc">Halle (Saale), Germany</div><div class="ei-logo">FF</div></div>
+      <div class="ei-right">
+        <h3 class="ei-role">Operations Manager</h3>
+        <p class="ei-co">Freddy Fresh GmbH</p>
+        <ul class="ei-ul">
+          <li>Led daily operations and a team of 15+ staff across scheduling, resource allocation, and performance management</li>
+          <li>Developed SOPs and KPI tracking systems for operational oversight</li>
+          <li>Self-initiated product analysis of internal digital tools — see Case Studies above</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ei">
+      <div class="ei-left"><div class="ei-dates">May 2018</div><div class="ei-loc">Kerala, India</div><div class="ei-logo">BPL</div></div>
+      <div class="ei-right">
+        <h3 class="ei-role">Intern — Product Testing & Embedded Integration</h3>
+        <p class="ei-co">BPL Medical Technologies</p>
+        <ul class="ei-ul">
+          <li>Tested and validated medical embedded devices (defibrillators, ECG machines)</li>
+          <li>Created technical documentation, user manuals, and compliance files</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="sec sec-warm">
+  <div class="reveal">
+    <div class="sec-ey"><div class="sec-el"></div><span class="sec-lb">Education</span></div>
+    <h2 class="sec-title">Academic <em>foundation.</em></h2>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <h3 class="edu-deg">Master of Engineering</h3>
+      <p class="edu-field">Electrical and Computer Engineering</p>
+      <p class="edu-uni">Anhalt University of Applied Sciences</p>
+      <p class="edu-dates">October 2021 – October 2024 · Köthen, Germany</p>
+      <div class="edu-badge">GPA 1.9 — Very Good</div>
+      <ul class="edu-ul">
+        <li>Specialization: Communication Systems</li>
+        <li>Thesis: CI/CD pipeline — Python, Jenkins, Docker, Selenium, DigitalOcean</li>
+        <li>Project management with Agile/Scrum using Jira</li>
+      </ul>
+    </div>
+    <div class="edu-card">
+      <h3 class="edu-deg">Bachelor of Technology</h3>
+      <p class="edu-field">Electronics and Communication Engineering</p>
+      <p class="edu-uni">APJ Abdul Kalam Technological University</p>
+      <p class="edu-dates">June 2016 – June 2020 · Kerala, India</p>
+      <div class="edu-badge" style="background:var(--muted)">Foundation Degree</div>
+      <ul class="edu-ul">
+        <li>Power Electronics & Control Systems</li>
+        <li>Communication Systems & Signal Processing</li>
+        <li>Embedded Systems & Digital Electronics</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="sec" id="skills">
+  <div class="reveal">
+    <div class="sec-ey"><div class="sec-el"></div><span class="sec-lb">Capabilities</span></div>
+    <h2 class="sec-title">What I bring to<br>a <em>product team.</em></h2>
+  </div>
+  <div class="sk-grid reveal">
+    <div class="sk-col"><p class="sk-title">Product Management</p><ul class="sk-ul"><li><span class="skd"></span>Market & Stakeholder Analysis</li><li><span class="skd"></span>Requirements Definition</li><li><span class="skd"></span>Product Roadmapping</li><li><span class="skd"></span>Business Case Development</li><li><span class="skd"></span>Product Lifecycle Management</li><li><span class="skd"></span>Agile / Scrum</li></ul></div>
+    <div class="sk-col"><p class="sk-title">User Research</p><ul class="sk-ul"><li><span class="skd"></span>Semi-structured Interviews</li><li><span class="skd"></span>Pain Point Analysis</li><li><span class="skd"></span>Problem Prioritization</li><li><span class="skd"></span>Lean Validation</li><li><span class="skd"></span>A/B Testing Design</li><li><span class="skd"></span>Design Thinking</li></ul></div>
+    <div class="sk-col"><p class="sk-title">Tools</p><ul class="sk-ul"><li><span class="skd"></span>Articulate Rise 360</li><li><span class="skd"></span>Jira · Confluence</li><li><span class="skd"></span>SAP MM/SD · Power BI</li><li><span class="skd"></span>Excel · MS Visio</li><li><span class="skd"></span>Git / GitLab</li><li><span class="skd"></span>Python · Docker · Jenkins</li></ul></div>
+    <div class="sk-col"><p class="sk-title">Domain Knowledge</p><ul class="sk-ul"><li><span class="skd"></span>Maritime Navigation Systems</li><li><span class="skd"></span>HVDC/FACTS Control Systems</li><li><span class="skd"></span>Remote Maintenance Systems</li><li><span class="skd"></span>NACOS Platinum (Certified)</li><li><span class="skd"></span>Starlink · VSAT · 4G/5G</li></ul></div>
+    <div class="sk-col"><p class="sk-title">Languages</p><ul class="sk-ul"><li><span class="skd"></span>English — C2 Fluent</li><li><span class="skd"></span>German — B2 Upper Intermediate</li><li><span class="skd"></span>Malayalam — Native</li></ul></div>
+    <div class="sk-col"><p class="sk-title">Soft Skills</p><ul class="sk-ul"><li><span class="skd"></span>Cross-functional Collaboration</li><li><span class="skd"></span>Stakeholder Communication</li><li><span class="skd"></span>Structured Problem Solving</li><li><span class="skd"></span>Independent Initiative</li><li><span class="skd"></span>High-pressure Resilience</li></ul></div>
+  </div>
+</section>
+
+<!-- WHY DPS -->
+<section class="sec sec-dark" id="whydps">
+  <div class="reveal">
+    <div class="sec-ey"><div class="sec-el"></div><span class="sec-lb sec-lb-w">DPS Batch #26 Application</span></div>
+    <h2 class="sec-title sec-title-w">Why DPS.<br><em>Why now.</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="reveal">
+      <p class="wp">I have spent the past two years at the edge of product management — owning roadmaps, running stakeholder analyses, building business cases, and designing user trainings at NACOS Marine. Outside of work, I independently conducted two product case studies because I was genuinely curious about why certain products create friction and others feel effortless.</p>
+      <p class="wp">What I haven't done yet is <strong>build a digital product from zero, in a cross-functional team, driven entirely by user problems.</strong> That is exactly what DPS offers.</p>
+      <p class="wp">I am fully committed: <strong>on-site in Munich, 40 hours a week, from September 7th.</strong> EU Blue Card holder. Ready to relocate. No distractions.</p>
+    </div>
+    <ul class="wcl reveal d2">
+      <li class="wi"><span class="wtick">✓</span>Real PM experience — not just engineering reframed as PM</li>
+      <li class="wi"><span class="wtick">✓</span>Two independent case studies — self-driven, not assigned</li>
+      <li class="wi"><span class="wtick">✓</span>User interviews conducted — B2B and consumer contexts</li>
+      <li class="wi"><span class="wtick">✓</span>Lean validation thinking — test before building</li>
+      <li class="wi"><span class="wtick">✓</span>Technical depth to collaborate directly with engineers</li>
+      <li class="wi"><span class="wtick">✓</span>EU Blue Card — fully authorized, ready to relocate to Munich</li>
+      <li class="wi"><span class="wtick">✓</span>German B2 — able to communicate in cross-cultural teams</li>
+      <li class="wi"><span class="wtick">✓</span>Available September 2026 · Full-time · 40h/week</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="reveal">
+    <div class="sec-ey" style="justify-content:center"><div class="sec-el"></div><span class="sec-lb">Get in Touch</span></div>
+    <h2 class="sec-title">Let's talk.</h2>
+    <p class="csub">Open for DPS, product conversations, or anything in between.</p>
+    <div class="clinks">
+      <a href="mailto:nimshar97@gmail.com" class="clink"><div class="cicon">✉</div>nimshar97@gmail.com</a>
+      <a href="tel:+4917621280814" class="clink"><div class="cicon">📞</div>+49 176 21280814</a>
+      <a href="https://linkedin.com/in/nimsha-rajesh" target="_blank" class="clink"><div class="cicon">🔗</div>LinkedIn Profile</a>
+    </div>
+    <div class="dbadge"><span class="ndot"></span>Applying to Digital Product School — Batch #26 · Munich · September 2026</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Nimsha Rajesh — Product Manager Portfolio</p>
+  <p>nimshar97.github.io</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, {threshold:0.08});
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
